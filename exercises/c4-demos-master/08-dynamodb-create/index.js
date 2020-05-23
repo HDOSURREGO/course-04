@@ -17,10 +17,12 @@ exports.handler = async (event) => {
     ...parsedBody
   }
 
-  await docClient.put({
-    TableName: groupsTable,
-    Item: newItem
-  }).promise()
+  await docClient
+    .put({
+      TableName: groupsTable,
+      Item: newItem
+    })
+    .promise()
 
   return {
     statusCode: 201,
